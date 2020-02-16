@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>First App</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>
+  </head>
+  <body>
+    <!--
+      <h1>This is a picture of me.</h1>
+      <img src="{% static "images/3.jpg" %}" alt="Sorry, the image didn't load." height="4 00" width="300">
+    -->
+    <!--This is a python code. This 'insert_me' is a dictionary key which will print the value defined in the views.py
+     {{ insert_me }} -->
+
+     <h1>Hi welcome to my website</h1>
+     <h1>All data from the AccessRecords table: </h1>
+
+     <div class="djangwtwo">
+      {% if access_records %}
+        <table>
+          <thead>
+            <th>Site Name</th> <th>Date Accessed</th>
+          </thead>
+          {% for ar in access_records %}
+            <tr>
+              <td>{{ar.name}}</td>
+              <td>{{ar.date}}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+        <p>No access record was found!</p>
+      {% endif %}
+     </div>
+  </body>
+</html>
